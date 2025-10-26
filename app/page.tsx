@@ -24,14 +24,17 @@ export default function HomePage() {
     {
       title: "Economic Forecasting of Poultry",
       desc: "Forecasted poultry market prices using ARIMA, SARIMA, and VAR with exogenous variables (CPI, avian flu). Achieved 84.5% accuracy to support supply chain decisions.",
+      img: "/projects/forecast.jpg",
     },
     {
       title: "Airbnb Clustering Analysis",
       desc: "Built K-means and bisecting K-means from scratch after PCA. Visualized clusters with radar and Folium maps for market segmentation insights.",
+      img: "/projects/clustering.jpg",
     },
     {
       title: "Market Basket Analysis Web App",
       desc: "Streamlit rule-mining app using a custom Apriori algorithm with full threshold control and lift-based ranking for non-technical users.",
+      img: "/projects/market.jpg",
     },
   ];
 
@@ -224,7 +227,25 @@ export default function HomePage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {projects.map((p, i) => (
             <Card key={i} className="rounded-2xl overflow-hidden">
-              <div className="h-44 w-full bg-gradient-to-br from-gray-100 to-gray-50" />
+              <div className="relative w-full overflow-hidden bg-gray-100">
+                {/* consistent thumbnail shape (16:9 ratio) */}
+                <div className="relative aspect-[16/9]">
+                  {p.img ? (
+                    <Image
+                      src={p.img}
+                      alt={`${p.title} thumbnail`}
+                      fill
+                      className="object-cover"
+                      sizes="(min-width: 768px) 50vw, 100vw"
+                      priority={i === 0} // preloads first image for speed
+                    />
+                  ) : (
+                    // fallback if image missing
+                    <div className="h-full w-full bg-gradient-to-br from-gray-100 to-gray-50" />
+                  )}
+                </div>
+              </div>
+
               <CardHeader>
                 <CardTitle className="text-xl">{p.title}</CardTitle>
               </CardHeader>
