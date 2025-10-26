@@ -6,6 +6,9 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { BarChart3, Brain, LineChart, GitBranch, Presentation, Cloud } from "lucide-react";
+import Image from "next/image";
+
+
 
 export default function HomePage() {
   const services = [
@@ -61,15 +64,15 @@ export default function HomePage() {
       title: "Masters in Business Analytics (UTA)",
       blurb: "Advanced business analytics, forecasting, and data science.",
       details: [
-        "Business Statistics (BSTAT 5325)",
-        "Business & Economic Forecasting (ECON 5337)",
-        "Cloud Computing Theory & Practice (INSY 5345)",
-        "Data Mining (INSY 5339)",
-        "Data Science (INSY 5378)",
-        "Data Warehousing & BI (INSY 5337)",
-        "Evidence-Based Management (MANA 5344)",
-        "Measurement & Analysis for Business Decision Making (ACCT 5307)",
-        "Python Programming (INSY 5336)",
+        "Business Statistics",
+        "Business & Economic Forecasting",
+        "Cloud Computing Theory & Practice",
+        "Data Mining",
+        "Data Science",
+        "Data Warehousing & BI",
+        "Evidence-Based Management",
+        "Measurement & Analysis for Business Decision Making",
+        "Python Programming",
       ],
     },
   ];
@@ -85,7 +88,7 @@ export default function HomePage() {
       {/* Navbar */}
       <header className="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-white/70 bg-white/80 border-b">
         <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
-          <a href="#top" className="text-xl font-semibold tracking-tight">Ajey</a>
+          <a href="#top" className="text-xl font-semibold tracking-tight">Ajey DS</a>
           <nav className="hidden sm:flex items-center gap-6 text-sm font-medium">
             <a href="#roadmap" className="hover:underline underline-offset-4">Roadmap</a>
             <a href="#about" className="hover:underline underline-offset-4">About</a>
@@ -120,19 +123,29 @@ export default function HomePage() {
             </a>
           </div>
           <div className="flex flex-wrap gap-2 pt-2" aria-label="Skills">
-            {["Python", "SQL", "Power BI", "Azure", "Forecasting", "ML"].map((s) => (
+            {["Python", "SQL", "Power BI", "Tableu", "AWS", "Azure", "Forecasting", "ML"].map((s) => (
               <Badge key={s} variant="secondary" className="rounded-2xl px-3 py-1 text-xs">{s}</Badge>
             ))}
           </div>
         </motion.div>
+
         <motion.div {...fadeUp} transition={{ delay: 0.1 }} className="w-full h-auto">
-          <img
-            src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=1200"
-            alt="Portrait placeholder"
-            className="rounded-2xl object-cover w-full max-h-[520px] shadow"
-          />
+          <div className="relative w-full rounded-2xl overflow-hidden shadow">
+            {/* aspect box keeps the portrait contained & clipped */}
+            <div className="relative aspect-[4/5] md:aspect-[3/4]">
+              <Image
+                src="/Ajey.jpg"
+                alt="Ajey Dhayashanker Loganathan"
+                fill
+                className="object-cover"
+                priority
+                sizes="(min-width: 768px) 50vw, 100vw"
+              />
+            </div>
+          </div>
         </motion.div>
       </section>
+
 
       {/* Roadmap */}
       <section id="roadmap" className="px-6 py-14 bg-gray-50">
@@ -249,3 +262,4 @@ export default function HomePage() {
     </div>
   );
 }
+
