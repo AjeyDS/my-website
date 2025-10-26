@@ -134,7 +134,7 @@ export default function HomePage() {
             {/* aspect box keeps the portrait contained & clipped */}
             <div className="relative aspect-[4/5] md:aspect-[3/4]">
               <Image
-                src="/Ajey.jpg"
+                src="/Ajey.JPG"
                 alt="Ajey Dhayashanker Loganathan"
                 fill
                 className="object-cover"
